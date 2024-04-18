@@ -12,9 +12,10 @@ export default {
       page3Display: "none",
       page4Display: "none",
       icon1Back: "var(--icon-highlight)",
-      icon2Back: "",
-      icon3Back: "",
-      icon4Back: "",
+      icon2Back: "var(--color-border)",
+      icon3Back: "var(--color-border-hover)",
+      icon4Back: "var(--color-border-hover)",
+      enablePage:[1,2]
     }
   },
   components: {
@@ -24,6 +25,9 @@ export default {
   },
   methods: {
     control_page(type: string, n: number) {
+      if(!this.enablePage.includes(n)){
+        return ""
+      }
       if (type == "over") {
         this.mainPage = n
         this.change_page(n)
